@@ -1,18 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void StartLevel(int levelIndex)
     {
-        
+        Game_Manager.instance.PlayLevel(levelIndex);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Quit()
     {
-        
+        Application.Quit();
+    }    
+
+    public void PlayLevel1()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ReturnToPrevScene()
+    {
+        SceneManager.UnloadSceneAsync("SettingsScene");
+    }
+
+    public void Settings()
+    {
+        SceneManager.LoadSceneAsync("SettingsScene", LoadSceneMode.Additive);
+    }
+
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Resume()
+    {
+        Game_Manager.instance.Resume();
     }
 }
