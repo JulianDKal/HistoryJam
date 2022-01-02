@@ -1746,6 +1746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 8578702263412414237, guid: 4732d67fc8db40947b4df8510aa0d7c5, type: 3}
   fieldSize: 5
+  gridOffset: {x: 0, y: 2}
 --- !u!4 &2028656690
 Transform:
   m_ObjectHideFlags: 0

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject unit;
+
+    private GameObject newUnit;
 
     private void OnMouseEnter() {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
         rend.color = Color.green;
-        Debug.Log("mouse over tile");
+        
     }
 
     private void OnMouseExit() {
@@ -18,7 +21,13 @@ public class Tile : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        Debug.Log("clicked");
-        GameObject newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+        Debug.Log(gridPosition);
+        BattleField.newUnitPosition = this.gridPosition;
+        if(!clickable) newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+        else BattleField.activeUnit.transform.position = gameObject.transform.position;
+        BattleField.ClearGrid();
     }
+
+    public Vector2 gridPosition;
+    public bool clickable = false;
 }
