@@ -12,20 +12,21 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter() {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        rend.color = Color.green;     
+        if(!movable && !underAttack) rend.color = Color.green;     
     }
 
     private void OnMouseExit() {
-        if(!clickable) GetComponent<SpriteRenderer>().color = Color.white;
+        if(!movable && !underAttack) GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnMouseDown() {
-        Debug.Log(gridPosition);
+        //Debug.Log(gridPosition);
         BattleField.newUnitPosition = this.gridPosition;
-        if(!clickable) newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+        if(!movable) newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
         else 
         {
             BattleField.activeUnit.transform.position = gameObject.transform.position;
+            occupied = true;
             BattleManager.onMove.Invoke(gridPosition);
             BattleManager.onMove = null;
         }
@@ -33,6 +34,7 @@ public class Tile : MonoBehaviour
     }
 
     public Vector2 gridPosition;
-    public bool clickable = false;
+    public bool movable = false;
+    public bool underAttack = false;
     public bool occupied = false;
 }

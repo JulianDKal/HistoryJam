@@ -49,7 +49,7 @@ public class BattleField : MonoBehaviour
         {
             KeyValuePair<Vector2, GameObject> entry = tilesDictionary.ElementAt(i);
             tilesDictionary[entry.Key].GetComponent<SpriteRenderer>().color = Color.white;
-            entry.Value.GetComponent<Tile>().clickable = false;
+            entry.Value.GetComponent<Tile>().movable = false;
         }
     }
 }

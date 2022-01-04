@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Game_Manager : MonoBehaviour
 {
     public static Game_Manager instance;
+    public static int currentMoney;
 
     public static bool gameIsPaused = false;
 

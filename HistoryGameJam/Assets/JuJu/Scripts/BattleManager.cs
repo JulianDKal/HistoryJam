@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
     public static AttackOrMove attackOrMove;
     public static List<Unit> activePlayerUnits;
     public static List<Unit> activeEnemyUnits;
+    public static int turnsSinceWaveStart;
 
     public delegate void OnMove(Vector2 vector);
     public static OnMove onMove;
@@ -22,6 +23,14 @@ public class BattleManager : MonoBehaviour
         MOVE
     }
 
+    public enum BattleState 
+    {
+        NEWWAVE, 
+        PLAYERPLACE, 
+        PLAYERMOVE,
+        TURNEND
+    }
+
     public void ToggleAttackMove(TextMeshProUGUI textMeshPro)
     {
         if(attackOrMove == AttackOrMove.MOVE)
@@ -34,5 +43,9 @@ public class BattleManager : MonoBehaviour
             attackOrMove = AttackOrMove.MOVE;
             textMeshPro.text = "MOVE";
         }
+    }
+
+    private void Update() {
+        
     }
 }
