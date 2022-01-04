@@ -12,11 +12,13 @@ public class Tank : Unit
     private List<Vector2> moveVectors;
     private List<Vector2> attackVectors;
     private Vector2 positionInGrid;
+    private bool isEnemy;
 
     private void Awake() {
         this.positionInGrid = BattleField.newUnitPosition;
         moveVectors = unitTemplate.moveVectors;
         attackVectors = unitTemplate.attackVectors;
+        isEnemy = unitTemplate.isEnemy;
     }
 
     public override void Attack()
@@ -26,7 +28,7 @@ public class Tank : Unit
     
     public override void ShowMoveRange()
     {
-
+        if(isEnemy ^ BattleManager.gameState == BattleManager.GameState.playerTurn)
         foreach (Vector2 vector in moveVectors)
         {   
             GameObject tile;
@@ -58,13 +60,17 @@ public class Tank : Unit
     }
 
     private void OnMouseDown() {
-        BattleField.activeUnit = this.gameObject;
-        if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
+        if(isEnemy ^ BattleManager.gameState == BattleManager.GameState.playerTurn)
         {
-            ShowMoveRange();
-            BattleManager.onMove += UpdatePosition;
+            BattleField.activeUnit = this.gameObject;
+            if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
+            {
+                ShowMoveRange();
+                BattleManager.onMove += UpdatePosition;
+                BattleManager.ToggleTurn();
+            }
+            else ShowAttackRange();
         }
-        else ShowAttackRange();
     }
 
     private void UpdatePosition(Vector2 newPositionVector)

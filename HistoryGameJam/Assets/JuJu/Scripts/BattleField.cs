@@ -5,6 +5,11 @@ using System.Linq;
 
 public class BattleField : MonoBehaviour
 {
+
+    //array with ally [0] and enemy [1] tanks
+    [SerializeField]
+    public GameObject[] units;
+
     [SerializeField]
     private GameObject tilePrefab;
     [SerializeField]
