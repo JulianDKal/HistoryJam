@@ -31,6 +31,7 @@ public class Tank : Unit
         if(isEnemy ^ BattleManager.gameState == BattleManager.GameState.playerTurn)
         foreach (Vector2 vector in moveVectors)
         {   
+            Debug.Log(moveVectors.Count);
             GameObject tile;
             Debug.Log(positionInGrid - vector);
             if(BattleField.tilesDictionary.ContainsKey(positionInGrid - vector)) 
@@ -41,7 +42,7 @@ public class Tank : Unit
             if(!tile.GetComponent<Tile>().occupied) tile.GetComponent<SpriteRenderer>().color = Color.green;
             else tile.GetComponent<SpriteRenderer>().color = Color.red;
 
-            tile.GetComponent<Tile>().clickable = true;
+            tile.GetComponent<Tile>().movable = true;
         }
     }
 
@@ -56,6 +57,7 @@ public class Tank : Unit
             }
             else return;          
             tile.GetComponent<SpriteRenderer>().color = Color.yellow;
+            tile.GetComponent<Tile>().underAttack = true;
         }
     }
 
