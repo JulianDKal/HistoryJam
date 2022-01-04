@@ -29,14 +29,12 @@ public class Tank : Unit
 
         foreach (Vector2 vector in moveVectors)
         {   
-            Debug.Log(moveVectors.Count);
             GameObject tile;
-            Debug.Log(positionInGrid - vector);
             if(BattleField.tilesDictionary.ContainsKey(positionInGrid - vector)) 
             {
                 tile = BattleField.tilesDictionary[positionInGrid - vector];
             }
-            else return;
+            else continue;
             if(!tile.GetComponent<Tile>().occupied) tile.GetComponent<SpriteRenderer>().color = Color.green;
             else tile.GetComponent<SpriteRenderer>().color = Color.red;
 
