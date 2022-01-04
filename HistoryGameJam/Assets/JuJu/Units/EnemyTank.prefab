@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2290004907608597966}
   - component: {fileID: 3076998108649530638}
   m_Layer: 0
-  m_Name: tank1
+  m_Name: EnemyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c651db42225234b89f1deacb4c113f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitTemplate: {fileID: 11400000, guid: c9f45c0c9b15e444e9ec273c216b2bdb, type: 2}
+  unitTemplate: {fileID: 11400000, guid: 483c767387d328f4fb1284e4e0a09bff, type: 2}
 --- !u!61 &3076998108649530638
 BoxCollider2D:
   m_ObjectHideFlags: 0
