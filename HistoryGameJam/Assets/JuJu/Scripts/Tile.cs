@@ -5,9 +5,6 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject unit;
-
     private GameObject newUnit;
 
     private void OnMouseEnter() {
@@ -22,7 +19,7 @@ public class Tile : MonoBehaviour
     private void OnMouseDown() {
         //Debug.Log(gridPosition);
         BattleField.newUnitPosition = this.gridPosition;
-        if(!movable) newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+        if(!movable) newUnit = Instantiate(Card.currentUnitToPlace, gameObject.transform.position, Quaternion.identity);
         else 
         {
             BattleField.activeUnit.transform.position = gameObject.transform.position;

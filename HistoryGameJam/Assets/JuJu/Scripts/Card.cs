@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]
+    private int unitToSelect;
+
+    public BattleManager battleManager;
+    public static GameObject currentUnitToPlace;
+
+    private void Start() {
+        currentUnitToPlace = battleManager.listOfUnitsPlacable[0]; //setting the unit to allyinfantry by default so it never becomes null
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnMouseDown() {
+        currentUnitToPlace = battleManager.listOfUnitsPlacable[unitToSelect];
+        Debug.Log(currentUnitToPlace);
     }
+
 }

@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122084277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.08, y: -3.58, z: 0}
+  m_LocalPosition: {x: -7.37, y: -3.58, z: 0}
   m_LocalScale: {x: 1, y: 0.89566076, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -349,6 +349,8 @@ GameObject:
   m_Component:
   - component: {fileID: 338155481}
   - component: {fileID: 338155480}
+  - component: {fileID: 338155483}
+  - component: {fileID: 338155482}
   m_Layer: 0
   m_Name: tankcard
   m_TagString: Untagged
@@ -421,6 +423,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338155482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338155479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb6fa47de3f5194f9145483eb67d0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToSelect: 1
+  battleManager: {fileID: 1764402847}
+--- !u!61 &338155483
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338155479}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 2.4}
+    newSize: {x: 2, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 2.4}
+  m_EdgeRadius: 0
 --- !u!1 &350423892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1256,8 @@ GameObject:
   m_Component:
   - component: {fileID: 799352889}
   - component: {fileID: 799352888}
+  - component: {fileID: 799352891}
+  - component: {fileID: 799352890}
   m_Layer: 0
   m_Name: infcard1
   m_TagString: Untagged
@@ -1286,6 +1330,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799352890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799352887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb6fa47de3f5194f9145483eb67d0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToSelect: 0
+  battleManager: {fileID: 1764402847}
+--- !u!61 &799352891
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799352887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 2.4}
+    newSize: {x: 2, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 2.4}
+  m_EdgeRadius: 0
 --- !u!1 &968682625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 968682627}
   - component: {fileID: 968682626}
+  - component: {fileID: 968682628}
   m_Layer: 0
   m_Name: ribbon
   m_TagString: Untagged
@@ -1368,6 +1453,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &968682628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968682625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a26c974d5188a5847931566c7c2171e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1321607698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d77aa1bd4f5934b92889270bb56ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfUnitsPlacable:
+  - {fileID: 7688860343661211564, guid: eb8e866fba9d8d84a960709f02d9d510, type: 3}
+  - {fileID: 1718541570920213055, guid: 4c58255bb7069ea489fd9a3bbb4cb08b, type: 3}
+  - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+  - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
 --- !u!4 &1764402848
 Transform:
   m_ObjectHideFlags: 0

@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45ecb4462c29bb40a41d140ad3723e6, type: 3}
   m_Name: AllyInfantry
   m_EditorClassIdentifier: 
-  moveVectors: []
-  attackVectors: []
+  moveVectors:
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  attackVectors:
+  - {x: 1, y: 0}

@@ -5,6 +5,8 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
+    public List<GameObject> listOfUnitsPlacable;
+
     public static AttackOrMove attackOrMove;
     public static List<Unit> activePlayerUnits;
     public static List<Unit> activeEnemyUnits;

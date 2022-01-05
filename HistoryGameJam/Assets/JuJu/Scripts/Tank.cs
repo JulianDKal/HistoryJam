@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Animations;
 
 public class Tank : Unit
 {
     [SerializeField]
     private UnitTemplate unitTemplate;
-
 
     private List<Vector2> moveVectors;
     private List<Vector2> attackVectors;
@@ -71,4 +71,12 @@ public class Tank : Unit
     {
         positionInGrid = newPositionVector;
     }
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            GetComponent<Animator>().SetTrigger("ShootTrigger");
+        }
+    }
+
 }
