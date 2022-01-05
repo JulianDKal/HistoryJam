@@ -11,11 +11,11 @@ public class Card : MonoBehaviour
     public static GameObject currentUnitToPlace;
 
     private void Start() {
-        currentUnitToPlace = battleManager.listOfUnitsPlacable[0]; //setting the unit to allyinfantry by default so it never becomes null
+        currentUnitToPlace = battleManager.listOfUnitsPlaceable[0]; //setting the unit to allyinfantry by default so it never becomes null
     }
 
     private void OnMouseDown() {
-        currentUnitToPlace = battleManager.listOfUnitsPlacable[unitToSelect];
+        currentUnitToPlace = battleManager.listOfUnitsPlaceable[unitToSelect];
         Debug.Log(currentUnitToPlace);
     }
 

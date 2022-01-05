@@ -32,6 +32,7 @@ public class Tank : Unit
             GameObject tile;
             if(BattleField.tilesDictionary.ContainsKey(positionInGrid - vector)) 
             {
+                Debug.Log(positionInGrid - vector);
                 tile = BattleField.tilesDictionary[positionInGrid - vector];
             }
             else continue;

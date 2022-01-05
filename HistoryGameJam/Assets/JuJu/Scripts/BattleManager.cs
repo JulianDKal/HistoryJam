@@ -5,18 +5,22 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
-    public List<GameObject> listOfUnitsPlacable;
+    public List<GameObject> listOfUnitsPlaceable;
+    public EnemyAI enemy;
 
     public static AttackOrMove attackOrMove;
     public static BattleState battleState;
     public static List<Unit> activePlayerUnits;
     public static List<Unit> activeEnemyUnits;
     public static int turnsSinceWaveStart;
+    public static int waveCount;
 
     private void Start() {
         attackOrMove = AttackOrMove.MOVE;
         //start with new wave when implemented
-        battleState = BattleState.PLAYERPLACE;
+        battleState = BattleState.NEWWAVE;
+        waveCount = 0;
+        NextWave();
     }
 
     public enum AttackOrMove
@@ -31,6 +35,17 @@ public class BattleManager : MonoBehaviour
         PLAYERPLACE, 
         PLAYERTURN,
         ENEMYTURN
+    }
+
+    public void NextWave()
+    {
+        if(battleState == BattleState.NEWWAVE)
+        {
+            enemy.PlaceWave();
+            waveCount++;
+            Debug.Log("Wave placed");
+            SetState(BattleState.PLAYERPLACE);
+        }
     }
 
     public void ToggleAttackMove(TextMeshProUGUI textMeshPro)
@@ -52,14 +67,13 @@ public class BattleManager : MonoBehaviour
         if(battleState == BattleState.PLAYERPLACE)
         {
             SetState(BattleState.PLAYERTURN);
-            GameObject.Find("StartButton").SetActive(false);
         }
     }
 
     public static void SetState(BattleState bs)
     {
         battleState = bs;
-        Debug.Log("State change");
+        //Debug.Log("State change");
     }
 
     private void Update() {

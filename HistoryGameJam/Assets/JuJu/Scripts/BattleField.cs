@@ -18,7 +18,9 @@ public class BattleField : MonoBehaviour
     public static int[,] gridArray;
     public static Dictionary<Vector2, GameObject> tilesDictionary = new Dictionary<Vector2, GameObject>();
 
-    private void Start() {
+    //Changed to Awake because otherwise EnemyAI is loaded faster
+    //Might be able to fix with coroutines
+    private void Awake() {
         int index = 0;
         Vector2 firstTileInRow = Vector2.zero;
         int yPosition = 0; //just for detecting in which row the current tile is
