@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
     public List<GameObject> listOfUnitsPlacable;
 
     public static AttackOrMove attackOrMove;
+    public static BattleState battleState;
     public static List<Unit> activePlayerUnits;
     public static List<Unit> activeEnemyUnits;
     public static int turnsSinceWaveStart;
@@ -17,6 +18,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start() {
         attackOrMove = AttackOrMove.MOVE;
+        battleState = BattleState.PLAYERPLACE;
     }
 
     public enum AttackOrMove
@@ -29,8 +31,8 @@ public class BattleManager : MonoBehaviour
     {
         NEWWAVE, 
         PLAYERPLACE, 
-        PLAYERMOVE,
-        TURNEND
+        PLAYERTURN,
+        ENEMYTURN
     }
 
     public void ToggleAttackMove(TextMeshProUGUI textMeshPro)
@@ -45,6 +47,21 @@ public class BattleManager : MonoBehaviour
             attackOrMove = AttackOrMove.MOVE;
             textMeshPro.text = "MOVE";
         }
+    }
+
+    public void ToggleStartCombat(TextMeshProUGUI textMeshPro)
+    {
+        if(battleState == BattleState.PLAYERPLACE)
+        {
+            SetState(BattleState.PLAYERTURN);
+            GameObject.Find("StartButton").SetActive(false);
+        }
+    }
+
+    public static void SetState(BattleState bs)
+    {
+        battleState = bs;
+        Debug.Log("State change");
     }
 
     private void Update() {

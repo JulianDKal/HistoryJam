@@ -35,10 +35,13 @@ public class Tank : Unit
                 tile = BattleField.tilesDictionary[positionInGrid - vector];
             }
             else continue;
-            if(!tile.GetComponent<Tile>().occupied) tile.GetComponent<SpriteRenderer>().color = Color.green;
-            else tile.GetComponent<SpriteRenderer>().color = Color.red;
 
-            tile.GetComponent<Tile>().movable = true;
+            if(!tile.GetComponent<Tile>().occupied) 
+            {
+                tile.GetComponent<SpriteRenderer>().color = Color.green;
+                tile.GetComponent<Tile>().movable = true;
+            }
+            else tile.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 
@@ -51,23 +54,27 @@ public class Tank : Unit
             {
                 tile = BattleField.tilesDictionary[positionInGrid - vector];
             }
-            else return;          
+            else continue;          
             tile.GetComponent<SpriteRenderer>().color = Color.yellow;
-            tile.GetComponent<Tile>().underAttack = true;
+            tile.GetComponent<Tile>().attackable = true;
         }
     }
 
     private void OnMouseDown() {
+        BattleField.ClearGrid();
         BattleField.activeUnit = this.gameObject;
+
         if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
         {
             ShowMoveRange();
-            BattleManager.onMove += UpdatePosition;
         }
-        else ShowAttackRange();
+        else
+        {
+            ShowAttackRange();
+        }
     }
 
-    private void UpdatePosition(Vector2 newPositionVector)
+    public void UpdatePosition(Vector2 newPositionVector)
     {
         positionInGrid = newPositionVector;
     }

@@ -9,29 +9,47 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter() {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        if(!movable && !underAttack) rend.color = Color.green;     
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE) rend.color = Color.green;     
     }
 
     private void OnMouseExit() {
-        if(!movable && !underAttack) GetComponent<SpriteRenderer>().color = Color.white;
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE) rend.color = Color.white;
     }
 
     private void OnMouseDown() {
         //Debug.Log(gridPosition);
-        BattleField.newUnitPosition = this.gridPosition;
-        if(!movable) newUnit = Instantiate(Card.currentUnitToPlace, gameObject.transform.position, Quaternion.identity);
-        else 
+        
+        //placement phase
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE)
         {
-            BattleField.activeUnit.transform.position = gameObject.transform.position;
-            occupied = true;
-            BattleManager.onMove.Invoke(gridPosition);
-            BattleManager.onMove = null;
+            BattleField.newUnitPosition = this.gridPosition;
+            if(!occupied)
+            {
+                newUnit = Instantiate(Card.currentUnitToPlace, gameObject.transform.position, Quaternion.identity);
+                occupied = true;
+            }
+        }
+        //player's turn
+        else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN && (movable || attackable))
+        {
+            //move mode
+            if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE){
+                BattleField.activeUnit.transform.position = gameObject.transform.position;
+                BattleField.activeUnit.GetComponent<Tank>().UpdatePosition(gridPosition);
+                BattleField.activeUnit = null;
+                occupied = true;
+            }
+            //attack mode
+            else {
+
+            }
         }
         BattleField.ClearGrid();
     }
 
     public Vector2 gridPosition;
     public bool movable = false;
-    public bool underAttack = false;
+    public bool attackable = false;
     public bool occupied = false;
 }
