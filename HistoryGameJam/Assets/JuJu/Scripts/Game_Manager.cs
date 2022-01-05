@@ -26,7 +26,7 @@ public class Game_Manager : MonoBehaviour
 
     public IEnumerator LoadLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(levelIndex);
     }
 

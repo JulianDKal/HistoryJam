@@ -1,12 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private Material mat;
+    public float transitionSpeed = -0.5f;
+    private float threshold = 1.1f;
+
+    private void Awake() {
+        mat = GetComponent<Image>().material;
+        FadeIn();
+    }
+
     public void StartLevel(int levelIndex)
     {
+        FadeOut();
         Game_Manager.instance.PlayLevel(levelIndex);
     }
 
@@ -45,5 +55,22 @@ public class UIManager : MonoBehaviour
     public void Resume()
     {
         Game_Manager.instance.Resume();
+    }
+
+    public void FadeOut()
+    {
+        transitionSpeed *= -1;
+        threshold = 1.1f;
+    }
+
+    public void FadeIn()
+    {
+        transitionSpeed *= -1;
+        threshold = -0.1f;
+    }
+
+    private void Update() {
+        threshold += Time.deltaTime * transitionSpeed;
+        mat.SetFloat("Threshold", threshold);
     }
 }
