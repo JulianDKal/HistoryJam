@@ -61,22 +61,41 @@ public class Tank : Unit
     }
 
     private void OnMouseDown() {
-        BattleField.ClearGrid();
-        BattleField.activeUnit = this.gameObject;
+        //only allow to select units during player turn
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
+            {
+            BattleField.ClearGrid();
+            BattleField.activeUnit = this.gameObject;
 
-        if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
-        {
-            ShowMoveRange();
-        }
-        else
-        {
-            ShowAttackRange();
+            if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
+            {
+                ShowMoveRange();
+            }
+            else
+            {
+                ShowAttackRange();
+            }
         }
     }
 
     public void UpdatePosition(Vector2 newPositionVector)
     {
         positionInGrid = newPositionVector;
+    }
+
+    public Tile GetTile()
+    {
+        Tile tile;
+        if(BattleField.tilesDictionary.ContainsKey(positionInGrid)) 
+        {
+            tile = BattleField.tilesDictionary[positionInGrid].GetComponent<Tile>();
+            return tile;
+        }
+        else
+        {
+            Debug.Log("Unit out of grid!");
+            return null;
+        }
     }
 
     private void Update() {

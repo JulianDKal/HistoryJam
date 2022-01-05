@@ -36,9 +36,10 @@ public class Tile : MonoBehaviour
             //move mode
             if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE){
                 BattleField.activeUnit.transform.position = gameObject.transform.position;
+                BattleField.activeUnit.GetComponent<Tank>().GetTile().occupied = false;
                 BattleField.activeUnit.GetComponent<Tank>().UpdatePosition(gridPosition);
-                BattleField.activeUnit = null;
                 occupied = true;
+                BattleField.activeUnit = null;
             }
             //attack mode
             else {

@@ -13,11 +13,9 @@ public class BattleManager : MonoBehaviour
     public static List<Unit> activeEnemyUnits;
     public static int turnsSinceWaveStart;
 
-    public delegate void OnMove(Vector2 vector);
-    public static OnMove onMove;
-
     private void Start() {
         attackOrMove = AttackOrMove.MOVE;
+        //start with new wave when implemented
         battleState = BattleState.PLAYERPLACE;
     }
 
