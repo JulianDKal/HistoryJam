@@ -6,8 +6,13 @@ using UnityEngine.Animations;
 
 public class Tank : Unit
 {
+    private Material startMat;
+    private SpriteRenderer rend;
+
     [SerializeField]
     private UnitTemplate unitTemplate;
+    [SerializeField]
+    private Material outlineMaterial;
 
     private List<Vector2> moveVectors;
     private List<Vector2> attackVectors;
@@ -17,6 +22,8 @@ public class Tank : Unit
         this.positionInGrid = BattleField.newUnitPosition;
         moveVectors = unitTemplate.moveVectors;
         attackVectors = unitTemplate.attackVectors;
+        rend = GetComponent<SpriteRenderer>();
+        startMat = rend.material;
     }
 
     public override void Attack()
@@ -100,10 +107,11 @@ public class Tank : Unit
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.S))
+        if(BattleField.activeUnit == this.gameObject)
         {
-            GetComponent<Animator>().SetTrigger("ShootTrigger");
+            rend.material = outlineMaterial;
         }
+        else rend.material = startMat;
     }
 
 }

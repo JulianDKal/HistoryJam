@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitTemplate: {fileID: 11400000, guid: e7e6b107e15feb741b653ba5f1696458, type: 2}
+  outlineMaterial: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
 --- !u!61 &8986901155771963837
 BoxCollider2D:
   m_ObjectHideFlags: 0
