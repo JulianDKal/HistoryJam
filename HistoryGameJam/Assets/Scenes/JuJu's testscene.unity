@@ -437,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitToSelect: 1
   outlineMat: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  cost: 0
   battleManager: {fileID: 1764402847}
 --- !u!61 &338155483
 BoxCollider2D:
@@ -1494,6 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitToSelect: 0
   outlineMat: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  cost: 0
   battleManager: {fileID: 1764402847}
 --- !u!61 &799352891
 BoxCollider2D:
@@ -1688,6 +1690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitToSelect: 0
   outlineMat: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  cost: 0
   battleManager: {fileID: 1764402847}
 --- !u!61 &858952909
 BoxCollider2D:

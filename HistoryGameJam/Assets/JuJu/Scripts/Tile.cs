@@ -100,7 +100,7 @@ public class Tile : MonoBehaviour
         BattleField.activeUnit = null;
     }
 
-    private void Attack()
+    public void Attack()
     {
         if(occupied)
         {
@@ -109,6 +109,23 @@ public class Tile : MonoBehaviour
             if(unitUnderAttack.IsEnemy()) //if enemy unit
             {
                 unitUnderAttack.GetTile().occupied = false;
+                BattleManager.activeEnemyUnits.Remove(unitUnderAttack.gameObject);
+                //animation somewhere here?
+                Destroy(unitUnderAttack.gameObject);
+            }
+        }
+    }
+
+    public void AttackAlly() //method for attacking the player's units for the enemy script
+    {
+        if(occupied)
+        {
+            Tank unitUnderAttack = GetUnit();
+
+            if(!unitUnderAttack.IsEnemy()) 
+            {
+                unitUnderAttack.GetTile().occupied = false;
+                BattleManager.activePlayerUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
                 Destroy(unitUnderAttack.gameObject);
             }

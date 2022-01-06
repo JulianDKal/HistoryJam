@@ -8,6 +8,8 @@ public class Card : MonoBehaviour
     private int unitToSelect;
     [SerializeField]
     private Material outlineMat;
+    [SerializeField]
+    private int cost;
     private Material startMat;
     private SpriteRenderer rend;
 
