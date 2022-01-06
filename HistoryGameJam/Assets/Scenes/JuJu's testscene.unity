@@ -707,11 +707,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53deccd99f1a5e14e96c6161ba4f7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 1764402847}
-  wave1:
-  - {x: 1, y: 1}
-  - {x: 2, y: 2}
-  - {x: 3, y: 3}
+  waves:
+  - unitPlacements:
+    - {x: 1, y: 1}
+    - {x: 2, y: 2}
+    - {x: 3, y: 3}
+    units:
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
 --- !u!4 &460183180
 Transform:
   m_ObjectHideFlags: 0

@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public BattleManager battleManager;
-
-    [SerializeField]
-    private Vector2[] wave1 = { new Vector2(1.0f, 1.0f),
-                                new Vector2(2.0f, 2.0f),
-                                new Vector2(3.0f, 3.0f) };
-
+    public Wave[] waves;
 
     public void PlaceWave()
     {
-        foreach(Vector2 vector in wave1)
+        int index = 0;
+        foreach(Vector2 vector in waves[BattleManager.waveCount].unitPlacements)
         {
             GameObject tile;
             if(BattleField.tilesDictionary.ContainsKey(vector)) 
             {
                 tile = BattleField.tilesDictionary[vector];
                 //instantiate tanks by default
-                tile.GetComponent<Tile>().PlaceNewUnit(battleManager.listOfUnitsPlaceable[3]);
+                tile.GetComponent<Tile>().PlaceNewUnit(waves[BattleManager.waveCount].units[index]);
                 Debug.Log("Instantiated");
+                
             }
             else Debug.Log("Unit out of grid!");
+            index++;
         }
     }
+}
+
+[System.Serializable]
+public class Wave 
+{
+    public Vector2[] unitPlacements;
+    public GameObject[] units;
 }
