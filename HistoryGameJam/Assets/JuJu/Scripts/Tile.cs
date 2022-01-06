@@ -29,7 +29,8 @@ public class Tile : MonoBehaviour
         //placement phase
         if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE)
         {
-            PlaceNewUnit(Card.currentUnitToPlace);
+            PlaceNewUnit(Card.currentUnitToPlace, out GameObject newUnit);
+            BattleManager.activePlayerUnits.Add(newUnit);
         }
         
         else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
@@ -56,15 +57,29 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void PlaceNewUnit(GameObject unit)
+    public void PlaceNewUnit(GameObject unit, out GameObject instantiatedUnit)
     {
-        BattleField.newUnitPosition = this.gridPosition;
+        BattleField.newUnitPosition = this.gridPosition;       
         if(!occupied)
         {
             //all units are created as a child of Tile
             newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
             newUnit.transform.parent = transform;
             occupied = true;
+            instantiatedUnit = newUnit;           
+        }
+        else instantiatedUnit = null;
+    }
+
+        public void PlaceNewUnit(GameObject unit)
+    {
+        BattleField.newUnitPosition = this.gridPosition;       
+        if(!occupied)
+        {
+            //all units are created as a child of Tile
+            newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+            newUnit.transform.parent = transform;
+            occupied = true;          
         }
     }
 

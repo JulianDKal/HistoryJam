@@ -14,8 +14,10 @@ public class Tank : Unit
     [SerializeField]
     private Material outlineMaterial;
 
-    private List<Vector2> moveVectors;
-    private List<Vector2> attackVectors;
+    [HideInInspector]
+    public List<Vector2> moveVectors;
+    [HideInInspector]
+    public List<Vector2> attackVectors;
     private Vector2 positionInGrid;
     private bool isEnemy;
 

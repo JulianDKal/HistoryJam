@@ -10,8 +10,8 @@ public class BattleManager : MonoBehaviour
 
     public static AttackOrMove attackOrMove;
     public static BattleState battleState;
-    public static List<Unit> activePlayerUnits;
-    public static List<Unit> activeEnemyUnits;
+    public static List<GameObject> activePlayerUnits = new List<GameObject>();
+    public static List<GameObject> activeEnemyUnits = new List<GameObject>();
     public static int turnsSinceWaveStart;
     public static int waveCount;
 
