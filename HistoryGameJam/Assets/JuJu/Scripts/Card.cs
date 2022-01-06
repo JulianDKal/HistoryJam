@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
+
     [SerializeField]
     private int unitToSelect;
     [SerializeField]
     private Material outlineMat;
+    public int cost;
     [SerializeField]
-    private int cost;
+    private TextMeshProUGUI moneyText;
     private Material startMat;
     private SpriteRenderer rend;
 
@@ -17,15 +20,21 @@ public class Card : MonoBehaviour
     public static GameObject currentUnitToPlace;
     public static GameObject currentCardSelected;
 
-    private void Start() {
+    private void Awake() {
         currentUnitToPlace = battleManager.listOfUnitsPlaceable[0]; //setting the unit to allyinfantry by default so it never becomes null
+        currentCardSelected = this.gameObject;
         startMat = GetComponent<SpriteRenderer>().material;
         rend = GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseDown() {
-        currentUnitToPlace = battleManager.listOfUnitsPlaceable[unitToSelect];;
+        currentUnitToPlace = battleManager.listOfUnitsPlaceable[unitToSelect];
         currentCardSelected = this.gameObject;
+    }
+
+    public static void RemoveMoney(int cost)
+    {
+        Game_Manager.currentMoney -= cost;        
     }
 
     private void Update() {
@@ -34,6 +43,8 @@ public class Card : MonoBehaviour
             rend.material = outlineMat;
         }
         else rend.material = startMat;
+        
+        moneyText.text = Game_Manager.currentMoney.ToString();
     }
 
 }

@@ -30,18 +30,18 @@ public class EnemyAI : MonoBehaviour
 
     public IEnumerator ExecuteEnemyTurn()
     {
-        foreach (GameObject unit in BattleManager.activeEnemyUnits)
-        {
-            //Get information about the current unit
+        //Get information about the current unit
             List<Vector2> availableTilesToMoveTo = new List<Vector2>();
-            List<Vector2> availableTilesToAttack = new List<Vector2>();
-            Vector2 currentPos = unit.GetComponentInParent<Tile>().gridPosition;
-            int xComponentOfCurrentPos = (int)currentPos.x;
-            bool alreadyAttacked = false;
+            List<Vector2> availableTilesToAttack = new List<Vector2>();                                  
             Dictionary<float, GameObject> distanceAndUnits = new Dictionary<float, GameObject>();
             GameObject unitToTrack; //the closest ally unit to this unit, which should be followed
-            Dictionary<float, Vector2> distanceOfMovetilesAndUnits = new Dictionary<float, Vector2>(); 
+            Dictionary<float, Vector2> distanceOfMovetilesAndUnits = new Dictionary<float, Vector2>();
 
+        foreach (GameObject unit in BattleManager.activeEnemyUnits)
+        {
+             Vector2 currentPos = unit.GetComponentInParent<Tile>().gridPosition;
+             int xComponentOfCurrentPos = (int)currentPos.x;
+             bool alreadyAttacked = false;
             //get all available tiles to move to and store them in a list
             foreach (Vector2 moveVector in unit.GetComponent<Tank>().moveVectors)
             {
@@ -66,8 +66,12 @@ public class EnemyAI : MonoBehaviour
                     break;
                 }
             }
-            if(alreadyAttacked) break; //break out of the current foreach loop and go to the next unit if this unit alread attacked    
-
+            if(alreadyAttacked)
+            {
+                yield return new WaitForSeconds(1);
+                continue; 
+            } 
+            
             for (int i = 0; i < BattleManager.activePlayerUnits.Count; i++)
             {
                 //gets the length of the vector from allyUnit to this unit
@@ -92,6 +96,12 @@ public class EnemyAI : MonoBehaviour
             unit.transform.position = tileToMoveTo.gameObject.transform.position;
             tileToMoveTo.occupied = true;
             unit.transform.parent = tileToMoveTo.transform;
+
+            availableTilesToMoveTo.Clear();
+            availableTilesToAttack.Clear();
+            distanceAndUnits.Clear();
+            distanceOfMovetilesAndUnits.Clear();
+            alreadyAttacked = false;            
 
             yield return new WaitForSeconds(1);
         }

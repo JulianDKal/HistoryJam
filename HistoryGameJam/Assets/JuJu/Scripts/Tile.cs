@@ -29,8 +29,13 @@ public class Tile : MonoBehaviour
         //placement phase
         if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE)
         {
+            if(Card.currentCardSelected.GetComponent<Card>().cost <= Game_Manager.currentMoney)
+            {
             PlaceNewUnit(Card.currentUnitToPlace, out GameObject newUnit);
             BattleManager.activePlayerUnits.Add(newUnit);
+            Card.RemoveMoney(Card.currentCardSelected.GetComponent<Card>().cost);
+            }
+            else Debug.Log("You don't have enough money!");           
         }
         
         else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
