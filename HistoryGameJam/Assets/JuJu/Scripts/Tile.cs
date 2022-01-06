@@ -9,7 +9,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter() {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE) rend.color = Color.green;     
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE) 
+        {
+            if(!occupied)
+                rend.color = Color.green;
+            else
+                rend.color = Color.red;
+        }
     }
 
     private void OnMouseExit() {
@@ -25,20 +31,29 @@ public class Tile : MonoBehaviour
         {
             PlaceNewUnit(Card.currentUnitToPlace);
         }
-        //player's turn
-        else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN && (movable || attackable))
+        
+        else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
         {
-            //move mode
-            if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE)
-                MoveActiveUnit();
-            //attack mode
-            else {
+            //player picks unit
+            if(occupied && !GetUnit().IsEnemy())
+                GetUnit().Select();
+    
+            //player picks target
+            if(movable || attackable)
+            {
+                //move mode
+                if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE)
+                    MoveActiveUnit();
+                //attack mode
+                else {
+                    Attack();
+                }
+                BattleField.ClearGrid();
             }
         }
         else
             Debug.Log("Unknown state");
 
-        BattleField.ClearGrid();
     }
 
     public void PlaceNewUnit(GameObject unit)
@@ -46,19 +61,47 @@ public class Tile : MonoBehaviour
         BattleField.newUnitPosition = this.gridPosition;
         if(!occupied)
         {
+            //all units are created as a child of Tile
             newUnit = Instantiate(unit, gameObject.transform.position, Quaternion.identity);
+            newUnit.transform.parent = transform;
             occupied = true;
         }
     }
 
     private void MoveActiveUnit()
     {
+        //update unit position
         BattleField.activeUnit.transform.position = gameObject.transform.position;
+        //unoccupy former tile
         BattleField.activeUnit.GetComponent<Tank>().GetTile().occupied = false;
+
+        //update unit grid position
         BattleField.activeUnit.GetComponent<Tank>().UpdatePosition(gridPosition);
+        //make child of this tile
+        BattleField.activeUnit.transform.parent = transform;
+        //occupy this tile
         occupied = true;
+        //unselect unit
         BattleField.activeUnit = null;
     }
+
+    private void Attack()
+    {
+        if(occupied)
+        {
+            Tank unitUnderAttack = GetUnit();
+
+            if(unitUnderAttack.IsEnemy()) //if enemy unit
+            {
+                unitUnderAttack.GetTile().occupied = false;
+                //animation somewhere here?
+                Destroy(unitUnderAttack.gameObject);
+            }
+        }
+    }
+
+    //access unit on this tile
+    public Tank GetUnit() { return transform.GetChild(0).gameObject.GetComponent<Tank>(); }
 
     public Vector2 gridPosition;
     public bool movable = false;

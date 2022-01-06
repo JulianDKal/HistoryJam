@@ -17,7 +17,6 @@ public class BattleManager : MonoBehaviour
 
     private void Start() {
         attackOrMove = AttackOrMove.MOVE;
-        //start with new wave when implemented
         battleState = BattleState.NEWWAVE;
         waveCount = 0;
         NextWave();

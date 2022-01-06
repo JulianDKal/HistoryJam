@@ -6,6 +6,5 @@ public abstract class Unit : MonoBehaviour
 {
     public abstract void ShowMoveRange();
     public abstract void ShowAttackRange();
-    public abstract void Attack();
     
 }

@@ -19,3 +19,4 @@ MonoBehaviour:
   - {x: -2, y: 0}
   attackVectors:
   - {x: -1, y: 0}
+  isEnemy: 1

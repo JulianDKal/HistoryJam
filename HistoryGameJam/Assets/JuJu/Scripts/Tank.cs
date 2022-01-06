@@ -17,18 +17,15 @@ public class Tank : Unit
     private List<Vector2> moveVectors;
     private List<Vector2> attackVectors;
     private Vector2 positionInGrid;
+    private bool isEnemy;
 
     private void Awake() {
         this.positionInGrid = BattleField.newUnitPosition;
         moveVectors = unitTemplate.moveVectors;
         attackVectors = unitTemplate.attackVectors;
+        isEnemy = unitTemplate.isEnemy;
         rend = GetComponent<SpriteRenderer>();
         startMat = rend.material;
-    }
-
-    public override void Attack()
-    {
-        
     }
     
     public override void ShowMoveRange()
@@ -39,7 +36,6 @@ public class Tank : Unit
             GameObject tile;
             if(BattleField.tilesDictionary.ContainsKey(positionInGrid - vector)) 
             {
-                Debug.Log(positionInGrid - vector);
                 tile = BattleField.tilesDictionary[positionInGrid - vector];
             }
             else continue;
@@ -68,43 +64,29 @@ public class Tank : Unit
         }
     }
 
-    private void OnMouseDown() {
-        //only allow to select units during player turn
-        if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
-            {
-            BattleField.ClearGrid();
-            BattleField.activeUnit = this.gameObject;
+    //-removed the OnMouseDown from Tanks to do all interaction through Tiles
+    public void Select() {
+        BattleField.ClearGrid();
+        BattleField.activeUnit = this.gameObject;
 
-            if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
-            {
-                ShowMoveRange();
-            }
-            else
-            {
-                ShowAttackRange();
-            }
-        }
-    }
+        if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
+            ShowMoveRange();
 
-    public void UpdatePosition(Vector2 newPositionVector)
-    {
-        positionInGrid = newPositionVector;
-    }
-
-    public Tile GetTile()
-    {
-        Tile tile;
-        if(BattleField.tilesDictionary.ContainsKey(positionInGrid)) 
-        {
-            tile = BattleField.tilesDictionary[positionInGrid].GetComponent<Tile>();
-            return tile;
-        }
         else
-        {
-            Debug.Log("Unit out of grid!");
-            return null;
-        }
+            ShowAttackRange();
     }
+
+    //to deselect on double click
+    public void Deselect() {
+        //BattleField.ClearGrid();
+        //BattleField.activeUnit = null;
+    }
+
+
+    //helpers    
+    public void UpdatePosition(Vector2 newPositionVector) { positionInGrid = newPositionVector; }
+    public Tile GetTile() { return transform.parent.GetComponent<Tile>(); }
+    public bool IsEnemy() { return isEnemy; }
 
     private void Update() {
         if(BattleField.activeUnit == this.gameObject)
