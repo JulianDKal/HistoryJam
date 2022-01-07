@@ -31,9 +31,9 @@ public class Tile : MonoBehaviour
         {
             if(Card.currentCardSelected.GetComponent<Card>().cost <= Game_Manager.currentMoney)
             {
-            PlaceNewUnit(Card.currentUnitToPlace, out GameObject newUnit);
-            BattleManager.activePlayerUnits.Add(newUnit);
-            Card.RemoveMoney(Card.currentCardSelected.GetComponent<Card>().cost);
+                PlaceNewUnit(Card.currentUnitToPlace, out GameObject newUnit);
+                BattleManager.activePlayerUnits.Add(newUnit);
+                if(newUnit!= null) Card.RemoveMoney(Card.currentCardSelected.GetComponent<Card>().cost);
             }
             else Debug.Log("You don't have enough money!");           
         }
@@ -53,12 +53,12 @@ public class Tile : MonoBehaviour
                 else Attack();
                 
                 BattleField.ClearGrid();
-                BattleManager.SetState(BattleManager.BattleState.ENEMYTURN);
-                StartCoroutine(GameObject.Find("EnemyAI").GetComponent<EnemyAI>().ExecuteEnemyTurn());
+
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyTurn();
             }
         }
         else
-            Debug.Log("Unknown state");
+            Debug.Log("Unknown state: " + BattleManager.battleState);
 
     }
 

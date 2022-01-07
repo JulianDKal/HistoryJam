@@ -719,6 +719,12 @@ MonoBehaviour:
     - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
     - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
     - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+  - unitPlacements:
+    - {x: 1, y: 1}
+    - {x: 1, y: 6}
+    units:
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
 --- !u!4 &460183180
 Transform:
   m_ObjectHideFlags: 0
@@ -2262,7 +2268,9 @@ MonoBehaviour:
   - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
   - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
   enemy: {fileID: 460183179}
-  maxTurnsPerWave: 10
+  startButton: {fileID: 1398647395}
+  maxTurnsPerWave: 3
+  moneyPerWave: 100
 --- !u!4 &1764402848
 Transform:
   m_ObjectHideFlags: 0

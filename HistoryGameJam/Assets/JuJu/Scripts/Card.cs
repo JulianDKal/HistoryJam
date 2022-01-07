@@ -37,6 +37,11 @@ public class Card : MonoBehaviour
         Game_Manager.currentMoney -= cost;        
     }
 
+    public static void GiveMoney(int cost)
+    {
+        Game_Manager.currentMoney += cost;        
+    }
+
     private void Update() {
         if(currentCardSelected == this.gameObject && BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE)
         {

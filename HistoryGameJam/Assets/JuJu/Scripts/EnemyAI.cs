@@ -110,6 +110,7 @@ public class EnemyAI : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
             BattleManager.SetState(BattleManager.BattleState.PLAYERTURN);
+            BattleManager.turnsSinceWaveStart++; //both players moved == 1 turn
         }
     }
 
