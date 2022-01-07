@@ -7,6 +7,8 @@ public class BattleManager : MonoBehaviour
 {
     public List<GameObject> listOfUnitsPlaceable;
     public EnemyAI enemy;
+    [SerializeField]
+    private int maxTurnsPerWave;
 
     public static AttackOrMove attackOrMove;
     public static BattleState battleState;
@@ -14,13 +16,6 @@ public class BattleManager : MonoBehaviour
     public static List<GameObject> activeEnemyUnits = new List<GameObject>();
     public static int turnsSinceWaveStart;
     public static int waveCount;
-
-    private void Start() {
-        attackOrMove = AttackOrMove.MOVE;
-        battleState = BattleState.NEWWAVE;
-        waveCount = 0;
-        NextWave();
-    }
 
     public enum AttackOrMove
     {
@@ -36,15 +31,21 @@ public class BattleManager : MonoBehaviour
         ENEMYTURN
     }
 
-    public void NextWave()
+    private void Start() {
+        attackOrMove = AttackOrMove.MOVE;
+        waveCount = 0;
+
+        SetState(BattleState.NEWWAVE);
+        NextWave();
+    }
+
+    private void NextWave()
     {
-        if(battleState == BattleState.NEWWAVE)
-        {
-            enemy.PlaceWave();
-            waveCount++;
-            Debug.Log("Wave placed");
-            SetState(BattleState.PLAYERPLACE);
-        }
+        turnsSinceWaveStart = 0;
+        enemy.PlaceWave();
+        waveCount++;
+
+        SetState(BattleState.PLAYERPLACE);
     }
 
     public void ToggleAttackMove(TextMeshProUGUI textMeshPro)
@@ -67,6 +68,7 @@ public class BattleManager : MonoBehaviour
         {
             SetState(BattleState.PLAYERTURN);
         }
+        //when move undo is implemented, we may move enemy turn here
     }
 
     public static void SetState(BattleState bs)
@@ -76,6 +78,6 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update() {
-        
+
     }
 }

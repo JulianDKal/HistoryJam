@@ -48,13 +48,13 @@ public class Tile : MonoBehaviour
             if(movable || attackable)
             {
                 //move mode
-                if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE)
-                    MoveActiveUnit();
+                if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) MoveActiveUnit();
                 //attack mode
-                else {
-                    Attack();
-                }
+                else Attack();
+                
                 BattleField.ClearGrid();
+                BattleManager.SetState(BattleManager.BattleState.ENEMYTURN);
+                StartCoroutine(GameObject.Find("EnemyAI").GetComponent<EnemyAI>().ExecuteEnemyTurn());
             }
         }
         else
