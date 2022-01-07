@@ -35,9 +35,9 @@ public class EnemyAI : MonoBehaviour
             //Get information about the current unit
                 List<Vector2> availableTilesToMoveTo = new List<Vector2>();
                 List<Vector2> availableTilesToAttack = new List<Vector2>();                                  
-                Dictionary<float, GameObject> distanceAndUnits = new Dictionary<float, GameObject>();
+                Dictionary<GameObject, float> distanceAndUnits = new Dictionary<GameObject, float>();
                 GameObject unitToTrack; //the closest ally unit to this unit, which should be followed
-                Dictionary<float, Vector2> distanceOfMovetilesAndUnits = new Dictionary<float, Vector2>();
+                Dictionary<Vector2, float> distanceOfMovetilesAndUnits = new Dictionary<Vector2, float>();
 
             foreach (GameObject unit in BattleManager.activeEnemyUnits)
             {
@@ -78,21 +78,23 @@ public class EnemyAI : MonoBehaviour
                 {
                     //gets the length of the vector from allyUnit to this unit
                     float distance = (BattleManager.activePlayerUnits[i].transform.position - unit.transform.position).magnitude; 
-                    distanceAndUnits.Add(distance, BattleManager.activePlayerUnits[i]);
+                    distanceAndUnits.Add(BattleManager.activePlayerUnits[i], distance);
                 }      
-                Dictionary<float, GameObject>.KeyCollection distances = distanceAndUnits.Keys;
-                unitToTrack = distanceAndUnits[distances.Min()];
+                Dictionary<GameObject, float>.ValueCollection distances = distanceAndUnits.Values;
+                //access unit by first matching value
+                unitToTrack = distanceAndUnits.FirstOrDefault(x => x.Value == distances.Min()).Key;
                 Debug.Log(unitToTrack);
 
                 foreach (Vector2 vector in availableTilesToMoveTo)
                 {               
                     //the distance between the current Tile that can be moved to and the target unit
                     float distance = (BattleField.tilesDictionary[vector].transform.position - unitToTrack.transform.position).magnitude;
-                    distanceOfMovetilesAndUnits.Add(distance, vector);
+                    distanceOfMovetilesAndUnits.Add(vector, distance);
                 }
-                //all the keys of the dictionary that contains 
-                Dictionary<float, Vector2>.KeyCollection distancesOfMoveTiles = distanceOfMovetilesAndUnits.Keys; 
-                Tile tileToMoveTo = BattleField.tilesDictionary[distanceOfMovetilesAndUnits[distancesOfMoveTiles.Min()]].GetComponent<Tile>();
+                //all the values of the dictionary that contains
+                Dictionary<Vector2, float>.ValueCollection distancesOfMoveTiles = distanceOfMovetilesAndUnits.Values; 
+                Vector2 tileToMoveToPos = distanceOfMovetilesAndUnits.FirstOrDefault(x => x.Value == distancesOfMoveTiles.Min()).Key;
+                Tile tileToMoveTo = BattleField.tilesDictionary[tileToMoveToPos].GetComponent<Tile>();
                 //move to the corresponding tile:
                 BattleField.tilesDictionary[currentPos].GetComponent<Tile>().occupied = false; //unoccupy former tile
                 unit.transform.position = tileToMoveTo.gameObject.transform.position;
