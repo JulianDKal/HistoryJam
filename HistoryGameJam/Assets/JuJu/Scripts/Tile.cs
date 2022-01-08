@@ -41,20 +41,23 @@ public class Tile : MonoBehaviour
         else if(BattleManager.battleState == BattleManager.BattleState.PLAYERTURN)
         {
             //player picks unit
-            if(occupied && !GetUnit().IsEnemy())
+            if(occupied && !GetUnit().IsEnemy() && !GetUnit().wasActiveThisTurn)
                 GetUnit().Select();
     
             //player picks target
             if(movable || attackable)
             {
                 //move mode
-                if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) MoveActiveUnit();
+                if(BattleManager.attackOrMove == BattleManager.AttackOrMove.MOVE) 
+                {
+                    BattleField.activeUnit.GetComponent<Tank>().wasActiveThisTurn = true;
+                    MoveActiveUnit();
+                }
                 //attack mode
                 else Attack();
                 
                 BattleField.ClearGrid();
-
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyTurn();
+                //GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyTurn();
             }
         }
         else
@@ -117,6 +120,7 @@ public class Tile : MonoBehaviour
                 BattleManager.activeEnemyUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
                 Destroy(unitUnderAttack.gameObject);
+                BattleField.activeUnit.GetComponent<Tank>().wasActiveThisTurn = true;
             }
         }
     }

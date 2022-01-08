@@ -9,12 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d272e42fad012f8449c0e86f17c3de37
   - enabled: 1
+    path: Assets/Scenes/FirstBattle.unity
+    guid: 4fa04e20c123f934094fda96d9baab73
+  - enabled: 1
+    path: Assets/Scenes/JuJu's testscene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: 65c0003c0b27a364d9cdef754be96d9e
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
     guid: 9180cb619954edc46a2fb99d32a6ec9e
   - enabled: 1
-    path: Assets/Scenes/JuJu's testscene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: ef418051aa0dc67469eabbc49f41fcf6
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: e4eb60ec6b576d147a70553312eea901
   m_configObjects: {}

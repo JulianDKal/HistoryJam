@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
     public Wave[] waves;
+    [SerializeField]
+    private BattleManager battleManager;
 
     public void PlaceWave()
     {
@@ -18,29 +21,28 @@ public class EnemyAI : MonoBehaviour
                 tile = BattleField.tilesDictionary[vector];
                 //instantiate tanks by default
                 tile.GetComponent<Tile>().PlaceNewUnit(waves[BattleManager.waveCount].units[index], out GameObject newUnit);
-                //Debug.Log("Instantiated");
                 BattleManager.activeEnemyUnits.Add(newUnit); //add the newly instantiated unit to the list of enemys
                 
             }
             else Debug.Log("Unit out of grid!");
             index++;
         }
-        Debug.Log(BattleManager.activeEnemyUnits.Count);
+        //Debug.Log(BattleManager.activeEnemyUnits.Count);
     }
 
     public IEnumerator ExecuteEnemyTurn()
     {
         if(BattleManager.battleState == BattleManager.BattleState.ENEMYTURN)
         {
-            //Get information about the current unit
+            yield return new WaitForSeconds(1);
+            foreach (GameObject unit in BattleManager.activeEnemyUnits)
+            {
+                //Get information about the current unit
                 List<Vector2> availableTilesToMoveTo = new List<Vector2>();
                 List<Vector2> availableTilesToAttack = new List<Vector2>();                                  
                 Dictionary<GameObject, float> distanceAndUnits = new Dictionary<GameObject, float>();
                 GameObject unitToTrack; //the closest ally unit to this unit, which should be followed
                 Dictionary<Vector2, float> distanceOfMovetilesAndUnits = new Dictionary<Vector2, float>();
-
-            foreach (GameObject unit in BattleManager.activeEnemyUnits)
-            {
                 Vector2 currentPos = unit.GetComponentInParent<Tile>().gridPosition;
                 int xComponentOfCurrentPos = (int)currentPos.x;
                 bool alreadyAttacked = false;
@@ -83,7 +85,7 @@ public class EnemyAI : MonoBehaviour
                 Dictionary<GameObject, float>.ValueCollection distances = distanceAndUnits.Values;
                 //access unit by first matching value
                 unitToTrack = distanceAndUnits.FirstOrDefault(x => x.Value == distances.Min()).Key;
-                Debug.Log(unitToTrack);
+                //Debug.Log(unitToTrack);
 
                 foreach (Vector2 vector in availableTilesToMoveTo)
                 {               
@@ -101,16 +103,20 @@ public class EnemyAI : MonoBehaviour
                 tileToMoveTo.occupied = true;
                 unit.transform.parent = tileToMoveTo.transform;
 
-                availableTilesToMoveTo.Clear();
+                /*availableTilesToMoveTo.Clear();
                 availableTilesToAttack.Clear();
                 distanceAndUnits.Clear();
-                distanceOfMovetilesAndUnits.Clear();
+                distanceOfMovetilesAndUnits.Clear(); */
                 alreadyAttacked = false;            
 
                 yield return new WaitForSeconds(1);
             }
-            BattleManager.SetState(BattleManager.BattleState.PLAYERTURN);
-            BattleManager.turnsSinceWaveStart++; //both players moved == 1 turn
+            battleManager.startButton.GetComponent<Button>().enabled = true;
+            battleManager.startButton.GetComponent<Button>().onClick.Invoke();
+           /*if(BattleManager.waveCount != waves.Length) {
+               BattleManager.SetState(BattleManager.BattleState.NEWWAVE);
+           } */
+            //BattleManager.turnsSinceWaveStart++; //both players moved == 1 turn
         }
     }
 

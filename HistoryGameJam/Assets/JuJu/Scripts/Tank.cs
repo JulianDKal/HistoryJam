@@ -20,6 +20,7 @@ public class Tank : Unit
     public List<Vector2> attackVectors;
     private Vector2 positionInGrid;
     private bool isEnemy;
+    public bool wasActiveThisTurn = false;
 
     private void Awake() {
         this.positionInGrid = BattleField.newUnitPosition;

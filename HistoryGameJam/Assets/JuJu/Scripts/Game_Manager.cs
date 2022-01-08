@@ -57,4 +57,15 @@ public class Game_Manager : MonoBehaviour
             else Resume();
         }
     }
+
+    public void Win()
+    {
+        SceneManager.LoadSceneAsync("VictoryScreen", LoadSceneMode.Additive);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadSceneAsync("GameOverScreen", LoadSceneMode.Additive);
+    }
+
 }

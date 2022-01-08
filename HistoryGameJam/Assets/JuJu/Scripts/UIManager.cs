@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     private Material mat;
     public float transitionSpeed = -0.5f;
     private float threshold = 1.1f;
+    public bool shouldFadeIn = true;
 
     private void Awake() {
         mat = GetComponent<Image>().material;
@@ -61,6 +62,7 @@ public class UIManager : MonoBehaviour
     {
         transitionSpeed *= -1;
         threshold = 1.1f;
+        shouldFadeIn = true;
     }
 
     public void FadeIn()
@@ -71,6 +73,7 @@ public class UIManager : MonoBehaviour
 
     private void Update() {
         threshold += Time.deltaTime * transitionSpeed;
+        if(!shouldFadeIn) threshold = 1.1f;
         mat.SetFloat("Threshold", threshold);
     }
 }
