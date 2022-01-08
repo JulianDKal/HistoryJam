@@ -16,5 +16,14 @@ public class victoryManager : MonoBehaviour
         rewardText.text = "Rewards: " + BattleManager.reward;
         lostText.text = "units lost: " + BattleManager.unitsLost;
         killedText.text = "units killed: " + BattleManager.unitsKilled;
+        Game_Manager.currentMoney += BattleManager.reward;
+        Debug.Log(Game_Manager.currentMoney);
+        Game_Manager.instance.currentLevelIndex++;
+
+        //Clearing everything
+        //BattleField.gridArray = null;
+        BattleField.tilesDictionary.Clear();
+        BattleManager.activeEnemyUnits.Clear();
+        BattleManager.activePlayerUnits.Clear();
     } 
 }

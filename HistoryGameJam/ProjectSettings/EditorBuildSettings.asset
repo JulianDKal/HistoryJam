@@ -9,24 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d272e42fad012f8449c0e86f17c3de37
   - enabled: 1
-    path: Assets/Scenes/FirstBattle.unity
-    guid: 4fa04e20c123f934094fda96d9baab73
+    path: Assets/Scenes/LevelSelectScene.unity
+    guid: 85682e05792458347a85ebfec43bf319
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 9180cb619954edc46a2fb99d32a6ec9e
   - enabled: 1
     path: Assets/Scenes/WesterPlatteBattle.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/BattleOfWizna.unity
+    guid: b1e18eff7e99cf740829e7c8298d8013
+  - enabled: 1
+    path: Assets/Scenes/BattleOfWilno.unity
+    guid: 99c3b5efde512ad47b20507e0ea11286
+  - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: 65c0003c0b27a364d9cdef754be96d9e
-  - enabled: 1
-    path: Assets/Scenes/SettingsScene.unity
-    guid: 9180cb619954edc46a2fb99d32a6ec9e
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: ef418051aa0dc67469eabbc49f41fcf6
   - enabled: 1
     path: Assets/Scenes/VictoryScreen.unity
     guid: e4eb60ec6b576d147a70553312eea901
-  - enabled: 1
-    path: Assets/Scenes/LevelSelectScene.unity
-    guid: 85682e05792458347a85ebfec43bf319
   m_configObjects: {}

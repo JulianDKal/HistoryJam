@@ -53,6 +53,8 @@ public class BattleManager : MonoBehaviour
         waveCount = 0;
         turnsSinceWaveStart = 0;
         reward = goldReward;
+        unitsKilled = 0;
+        unitsLost = 0;
 
         SetState(BattleState.NEWWAVE);
         StartCoroutine(WaitForNextWave());

@@ -7,6 +7,7 @@ public class Game_Manager : MonoBehaviour
 {
     public static Game_Manager instance;
     public static int currentMoney = 0;
+    public int currentLevelIndex = 3;
 
     public static bool gameIsPaused = false;
 

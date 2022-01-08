@@ -15,7 +15,7 @@ public class BattleField : MonoBehaviour
     public static Vector2 newUnitPosition;
     public static GameObject activeUnit;
     
-    public static int[,] gridArray;
+    //public static int[,] gridArray;
     public static Dictionary<Vector2, GameObject> tilesDictionary = new Dictionary<Vector2, GameObject>();
 
     //Changed to Awake because otherwise EnemyAI is loaded faster

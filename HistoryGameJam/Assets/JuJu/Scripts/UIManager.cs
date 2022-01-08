@@ -17,8 +17,12 @@ public class UIManager : MonoBehaviour
 
     public void StartLevel(int levelIndex)
     {
+        if(Game_Manager.instance.currentLevelIndex == levelIndex)
+        {
         FadeOut();
         Game_Manager.instance.PlayLevel(levelIndex);
+        }
+        
     }
 
     public void Quit()
@@ -44,8 +48,8 @@ public class UIManager : MonoBehaviour
     public void LevelSelectScreen()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelSelectScene");
         FadeOut();
+        SceneManager.LoadScene("LevelSelectScene");
     }
 
     public void BackToMainMenu()

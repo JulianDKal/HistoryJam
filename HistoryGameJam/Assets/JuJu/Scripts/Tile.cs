@@ -120,6 +120,7 @@ public class Tile : MonoBehaviour
 
             if(unitUnderAttack.IsEnemy()) //if enemy unit
             {
+                BattleManager.reward += 5;
                 unitUnderAttack.GetTile().occupied = false;
                 BattleManager.activeEnemyUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
@@ -130,6 +131,7 @@ public class Tile : MonoBehaviour
                 Destroy(unitUnderAttack.gameObject);
                 BattleField.activeUnit.GetComponent<Tank>().wasActiveThisTurn = true;
                 BattleManager.unitsKilled++;
+                
             }
         }
     }
