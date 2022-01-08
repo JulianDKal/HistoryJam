@@ -34,6 +34,8 @@ public class EnemyAI : MonoBehaviour
     {
         if(BattleManager.battleState == BattleManager.BattleState.ENEMYTURN)
         {
+            BattleField.ClearGrid();
+            //BattleField.activeUnit = null;
             yield return new WaitForSeconds(1);
             foreach (GameObject unit in BattleManager.activeEnemyUnits)
             {

@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
         //Debug.Log(gridPosition);
         
         //placement phase
-        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE)
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE && gridPosition.x >= 5)
         {
             if(Card.currentCardSelected.GetComponent<Card>().cost <= Game_Manager.currentMoney)
             {
@@ -129,6 +129,7 @@ public class Tile : MonoBehaviour
                 yield return new WaitForSeconds(0.4f);
                 Destroy(unitUnderAttack.gameObject);
                 BattleField.activeUnit.GetComponent<Tank>().wasActiveThisTurn = true;
+                BattleManager.unitsKilled++;
             }
         }
     }
@@ -148,6 +149,7 @@ public class Tile : MonoBehaviour
                 unitUnderAttack.GetComponent<Animator>().SetTrigger("DieTrigger");
                 yield return new WaitForSeconds(0.4f);
                 Destroy(unitUnderAttack.gameObject);
+                BattleManager.unitsLost++;
             }
             if(BattleManager.activePlayerUnits.Count <= 0) BattleManager.SetState(BattleManager.BattleState.LOSE);
         }

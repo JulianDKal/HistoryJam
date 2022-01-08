@@ -16,6 +16,10 @@ public class BattleManager : MonoBehaviour
     private TextMeshProUGUI turnsText;
     [SerializeField]
     private TextMeshProUGUI stateText;
+    [SerializeField]
+    private int goldReward = 100;
+    [SerializeField]
+    private TextMeshProUGUI waveText;
 
     public static AttackOrMove attackOrMove;
     public static BattleState battleState;
@@ -23,6 +27,10 @@ public class BattleManager : MonoBehaviour
     public static List<GameObject> activeEnemyUnits = new List<GameObject>();
     public static int turnsSinceWaveStart;
     public static int waveCount;
+
+    public static int unitsKilled;
+    public static int unitsLost;
+    public static int reward;
 
     public enum AttackOrMove
     {
@@ -44,6 +52,7 @@ public class BattleManager : MonoBehaviour
         attackOrMove = AttackOrMove.MOVE;
         waveCount = 0;
         turnsSinceWaveStart = 0;
+        reward = goldReward;
 
         SetState(BattleState.NEWWAVE);
         StartCoroutine(WaitForNextWave());
@@ -157,7 +166,8 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update() {
-        turnsText.text = turnsSinceWaveStart + "/" + maxTurnsPerWave;
+        turnsText.text = "Turn: " + turnsSinceWaveStart + "/" + maxTurnsPerWave; 
+        waveText.text = "Wave: " + waveCount + "/" + enemy.waves.Length;
         if(battleState == BattleState.PLAYERPLACE) 
         {
             stateText.text = "PLACE UNITS";
