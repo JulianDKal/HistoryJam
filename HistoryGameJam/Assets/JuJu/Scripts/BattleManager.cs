@@ -48,6 +48,7 @@ public class BattleManager : MonoBehaviour
         SetState(BattleState.NEWWAVE);
         StartCoroutine(WaitForNextWave());
         StartCoroutine(WaitForWinOrLose());
+        
     }
 
     private IEnumerator WaitForNextWave()

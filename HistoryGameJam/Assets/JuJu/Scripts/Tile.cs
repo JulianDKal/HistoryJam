@@ -124,6 +124,7 @@ public class Tile : MonoBehaviour
                 BattleManager.activeEnemyUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
                 BattleField.activeUnit.GetComponent<Animator>().SetTrigger("ShootTrigger");
+                BattleField.activeUnit.GetComponent<AudioSource>().Play();
                 unitUnderAttack.GetComponent<Animator>().SetTrigger("DieTrigger");
                 yield return new WaitForSeconds(0.4f);
                 Destroy(unitUnderAttack.gameObject);
@@ -141,6 +142,7 @@ public class Tile : MonoBehaviour
             if(!unitUnderAttack.IsEnemy()) 
             {
                 unitUnderAttack.GetTile().occupied = false;
+                unitUnderAttack.GetComponent<AudioSource>().Play();
                 BattleManager.activePlayerUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
                 unitUnderAttack.GetComponent<Animator>().SetTrigger("DieTrigger");
