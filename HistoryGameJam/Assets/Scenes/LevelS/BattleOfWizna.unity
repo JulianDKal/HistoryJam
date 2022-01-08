@@ -805,12 +805,10 @@ MonoBehaviour:
     - {x: 1, y: 1}
     - {x: 1, y: 6}
     - {x: 2, y: 3}
-    - {x: 2, y: 5}
     units:
     - {fileID: 855403360906750325, guid: 85baac440115acf4297c1a449efcd56c, type: 3}
     - {fileID: 855403360906750325, guid: 85baac440115acf4297c1a449efcd56c, type: 3}
     - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
-    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
   - unitPlacements:
     - {x: 2, y: 1}
     - {x: 1, y: 3}

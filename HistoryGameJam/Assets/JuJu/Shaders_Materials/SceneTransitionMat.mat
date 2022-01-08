@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Threshold: 1.1
+    - Threshold: 3.3889964
     - Vector1_22a7ab072ce54abb9c1421f3463c9c33: 1.1
     m_Colors:
     - Color_3ec84570cf074862b9853d18af3b685b: {r: 0, g: 0, b: 0, a: 1}
