@@ -70,6 +70,7 @@ public class Game_Manager : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadSceneAsync("GameOverScreen", LoadSceneMode.Additive);
+        Time.timeScale = 0f;
     }
 
 }

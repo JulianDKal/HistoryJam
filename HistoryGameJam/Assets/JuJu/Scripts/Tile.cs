@@ -58,7 +58,7 @@ public class Tile : MonoBehaviour
                     MoveActiveUnit();
                 }
                 //attack mode
-                else Attack();
+                else StartCoroutine(Attack());
                 
                 BattleField.ClearGrid();
                 //GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyTurn();
@@ -112,7 +112,7 @@ public class Tile : MonoBehaviour
         BattleField.activeUnit = null;
     }
 
-    public void Attack()
+    public IEnumerator Attack()
     {
         if(occupied)
         {
@@ -123,13 +123,16 @@ public class Tile : MonoBehaviour
                 unitUnderAttack.GetTile().occupied = false;
                 BattleManager.activeEnemyUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
+                BattleField.activeUnit.GetComponent<Animator>().SetTrigger("ShootTrigger");
+                unitUnderAttack.GetComponent<Animator>().SetTrigger("DieTrigger");
+                yield return new WaitForSeconds(0.4f);
                 Destroy(unitUnderAttack.gameObject);
                 BattleField.activeUnit.GetComponent<Tank>().wasActiveThisTurn = true;
             }
         }
     }
 
-    public void AttackAlly() //method for attacking the player's units for the enemy script
+    public IEnumerator AttackAlly() //method for attacking the player's units for the enemy script
     {
         if(occupied)
         {
@@ -140,8 +143,11 @@ public class Tile : MonoBehaviour
                 unitUnderAttack.GetTile().occupied = false;
                 BattleManager.activePlayerUnits.Remove(unitUnderAttack.gameObject);
                 //animation somewhere here?
+                unitUnderAttack.GetComponent<Animator>().SetTrigger("DieTrigger");
+                yield return new WaitForSeconds(0.4f);
                 Destroy(unitUnderAttack.gameObject);
             }
+            if(BattleManager.activePlayerUnits.Count <= 0) BattleManager.SetState(BattleManager.BattleState.LOSE);
         }
     }
 

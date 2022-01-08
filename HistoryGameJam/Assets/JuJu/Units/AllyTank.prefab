@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3478605970714286230}
   - component: {fileID: 5221493290352384916}
   - component: {fileID: 2567687115746022361}
+  - component: {fileID: 8365726554976040081}
   m_Layer: 0
   m_Name: AllyTank
   m_TagString: Untagged
@@ -98,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTemplate: {fileID: 11400000, guid: c9f45c0c9b15e444e9ec273c216b2bdb, type: 2}
   outlineMaterial: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  moveVectors: []
+  attackVectors: []
+  wasActiveThisTurn: 0
 --- !u!61 &2567687115746022361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +128,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85348225, y: 0.5930908}
   m_EdgeRadius: 0
+--- !u!95 &8365726554976040081
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718541570920213055}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 457b7f5152e8f014f9d03d600e5a7e13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

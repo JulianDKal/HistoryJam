@@ -65,7 +65,8 @@ public class EnemyAI : MonoBehaviour
                     else continue;
                     if(tile.occupied == true && !tile.GetUnit().IsEnemy())
                     {
-                        tile.AttackAlly();
+                        unit.GetComponent<Animator>().SetTrigger("ShootTrigger");
+                        tile.StartCoroutine("AttackAlly");
                         alreadyAttacked = true;
                         break;
                     }

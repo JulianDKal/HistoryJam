@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 927419983478565935}
   - component: {fileID: 7214338203493573057}
   - component: {fileID: 1061458033035013209}
+  - component: {fileID: 6123381841964353400}
   m_Layer: 0
   m_Name: EnemyInfantry
   m_TagString: Untagged
@@ -98,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTemplate: {fileID: 11400000, guid: fc3ccaa5b4706ce4a8607f746ab4efed, type: 2}
   outlineMaterial: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  moveVectors: []
+  attackVectors: []
+  wasActiveThisTurn: 0
 --- !u!61 &1061458033035013209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +128,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6425967, y: 0.6560011}
   m_EdgeRadius: 0
+--- !u!95 &6123381841964353400
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652966164667243113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 857d41e17720fe04fa948abf0764922d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

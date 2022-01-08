@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7929884302293645152}
   - component: {fileID: 4099525124723553640}
   - component: {fileID: 8986901155771963837}
-  - component: {fileID: 261867699803556666}
+  - component: {fileID: 6748389866735548821}
   m_Layer: 0
   m_Name: AllyInfantry
   m_TagString: Untagged
@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTemplate: {fileID: 11400000, guid: e7e6b107e15feb741b653ba5f1696458, type: 2}
   outlineMaterial: {fileID: 2100000, guid: fd3830eea54d76740a9fd2c0e2da3a00, type: 2}
+  moveVectors: []
+  attackVectors: []
+  wasActiveThisTurn: 0
 --- !u!61 &8986901155771963837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,7 +128,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.764972, y: 0.7084085}
   m_EdgeRadius: 0
---- !u!95 &261867699803556666
+--- !u!95 &6748389866735548821
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -135,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 7688860343661211564}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3136b2a572f0f0142aafce848507c71a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5765fd9615a7e9e41b37edc0188fcd53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

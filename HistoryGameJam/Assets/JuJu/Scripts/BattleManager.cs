@@ -75,6 +75,7 @@ public class BattleManager : MonoBehaviour
     {
         turnsSinceWaveStart = 0;
         enemy.PlaceWave();
+        BattleField.ClearGrid();
         Card.GiveMoney(moneyPerWave);
         waveCount++;
         Debug.Log(waveCount);
