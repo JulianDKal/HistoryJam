@@ -13,7 +13,7 @@ public class victoryManager : MonoBehaviour
     private TextMeshProUGUI killedText;
 
     private void Awake() {
-        rewardText.text = "Rewards: " + BattleManager.reward;
+        rewardText.text = "Rewards: " + BattleManager.reward + " Gold";
         lostText.text = "units lost: " + BattleManager.unitsLost;
         killedText.text = "units killed: " + BattleManager.unitsKilled;
         Game_Manager.currentMoney += BattleManager.reward;

@@ -146,6 +146,10 @@ public class BattleManager : MonoBehaviour
                 stateText.text = "YOUR TURN";
                 BattleField.ClearGrid();
                 turnsSinceWaveStart++;
+                foreach (GameObject unit in activePlayerUnits)
+                {
+                    unit.GetComponent<Tank>().wasActiveThisTurn = false;
+                }
                 }
                 
             }

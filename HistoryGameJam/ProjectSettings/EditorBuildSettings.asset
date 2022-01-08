@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VictoryScreen.unity
     guid: e4eb60ec6b576d147a70553312eea901
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 41c898089c655274dba1bd05042d8964
   m_configObjects: {}
