@@ -964,7 +964,7 @@ AudioSource:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -432449281872538806, guid: 52d7ffe69f3bd2743b51ca6fa5809239, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5d89782bbf669ba46bd9a1a0eeb94bb7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1554,7 +1554,7 @@ RectTransform:
   - {fileID: 1150061951}
   - {fileID: 1407377639}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2582,6 +2582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4568582454270623583, guid: 539511609b02c3c4b87d6a66f1044db2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539511609b02c3c4b87d6a66f1044db2, type: 3}
 --- !u!224 &1407377639 stripped
@@ -2977,7 +2981,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1845940330
 GameObject:

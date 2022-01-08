@@ -50,6 +50,9 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         FadeOut();
         SceneManager.LoadScene("LevelSelectScene");
+        BattleField.tilesDictionary.Clear();
+        BattleManager.activeEnemyUnits.Clear();
+        BattleManager.activePlayerUnits.Clear();
     }
 
     public void BackToMainMenu()
@@ -57,6 +60,9 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         FadeOut();
+        BattleField.tilesDictionary.Clear();
+        BattleManager.activeEnemyUnits.Clear();
+        BattleManager.activePlayerUnits.Clear();
     }
 
     public void Retry()
