@@ -805,17 +805,23 @@ MonoBehaviour:
     - {x: 1, y: 1}
     - {x: 1, y: 6}
     - {x: 2, y: 3}
+    - {x: 2, y: 5}
     units:
     - {fileID: 855403360906750325, guid: 85baac440115acf4297c1a449efcd56c, type: 3}
     - {fileID: 855403360906750325, guid: 85baac440115acf4297c1a449efcd56c, type: 3}
     - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
   - unitPlacements:
-    - {x: 1, y: 1}
+    - {x: 2, y: 1}
     - {x: 1, y: 3}
-    - {x: 1, y: 5}
+    - {x: 2, y: 5}
+    - {x: 2, y: 1}
+    - {x: 2, y: 4}
     units:
     - {fileID: 4652966164667243113, guid: 00e9ce914bf7f1346af46ca2e8ada405, type: 3}
-    - {fileID: 4652966164667243113, guid: 00e9ce914bf7f1346af46ca2e8ada405, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
     - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
   battleManager: {fileID: 1764402847}
 --- !u!4 &460183180
@@ -2112,6 +2118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevelIndex: 3
+  effectVolume: 0.75
+  musicVolume: 0.75
 --- !u!4 &1118853621
 Transform:
   m_ObjectHideFlags: 0

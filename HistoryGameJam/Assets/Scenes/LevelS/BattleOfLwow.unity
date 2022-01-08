@@ -797,6 +797,32 @@ MonoBehaviour:
     - {x: 3, y: 3}
     units:
     - {fileID: 4652966164667243113, guid: 30fd0db74ee882a40a255f43c5d7ef1e, type: 3}
+  - unitPlacements:
+    - {x: 2, y: 2}
+    - {x: 2, y: 3}
+    - {x: 2, y: 4}
+    - {x: 2, y: 6}
+    units:
+    - {fileID: 4652966164667243113, guid: 30fd0db74ee882a40a255f43c5d7ef1e, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+  - unitPlacements:
+    - {x: 1, y: 2}
+    - {x: 2, y: 3}
+    - {x: 1, y: 4}
+    units:
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 4652966164667243113, guid: 30fd0db74ee882a40a255f43c5d7ef1e, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+  - unitPlacements:
+    - {x: 2, y: 2}
+    - {x: 2, y: 4}
+    - {x: 1, y: 6}
+    units:
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
   battleManager: {fileID: 1764402847}
 --- !u!4 &460183180
 Transform:

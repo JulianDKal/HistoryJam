@@ -96,6 +96,14 @@ public class BattleManager : MonoBehaviour
             unit.GetComponent<Tank>().wasActiveThisTurn = false;
         }
 
+        foreach (KeyValuePair<Vector2, GameObject> tile in BattleField.tilesDictionary)
+        {
+            if(tile.Value.GetComponent<Tile>().occupied == false && tile.Value.GetComponent<Tile>().gridPosition.x >= 5)
+            {
+                tile.Value.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+        }
+
         SetState(BattleState.PLAYERPLACE);
         startButton.SetActive(true);
     }
@@ -130,11 +138,16 @@ public class BattleManager : MonoBehaviour
         switch(battleState)
         {
             case BattleState.PLAYERPLACE : {
+                if(activePlayerUnits.Count > 0)
+                {
                 SetState(BattleState.PLAYERTURN);
                 startButton.GetComponent<Button>().enabled = true;
                 textMeshPro.text = "NEXT";
                 stateText.text = "YOUR TURN";
+                BattleField.ClearGrid();
                 turnsSinceWaveStart++;
+                }
+                
             }
             break;
             case BattleState.PLAYERTURN : {

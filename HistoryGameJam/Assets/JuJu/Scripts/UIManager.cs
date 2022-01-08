@@ -63,6 +63,9 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        BattleField.tilesDictionary.Clear();
+        BattleManager.activeEnemyUnits.Clear();
+        BattleManager.activePlayerUnits.Clear();
     }
 
     public void Resume()

@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseExit() {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE) rend.color = Color.white;
+        if(BattleManager.battleState == BattleManager.BattleState.PLAYERPLACE && gridPosition.x < 5) rend.color = Color.white;
     }
 
     private void OnMouseDown() {
