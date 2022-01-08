@@ -119,10 +119,6 @@ public class EnemyAI : MonoBehaviour
             //BattleManager.turnsSinceWaveStart++; //both players moved == 1 turn
         }
     }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.E)) StartCoroutine("ExecuteEnemyTurn");
-    }
 }
 
 [System.Serializable]

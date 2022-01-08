@@ -32,9 +32,13 @@ public class Game_Manager : MonoBehaviour
 
     public void Pause()
     {
+        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        {
         gameIsPaused = true;
         SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
         Time.timeScale = 0;
+        }
+        
     }
 
     public void Resume()

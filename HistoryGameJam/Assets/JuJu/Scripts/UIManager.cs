@@ -41,10 +41,18 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadSceneAsync("SettingsScene", LoadSceneMode.Additive);
     }
 
+    public void LevelSelectScreen()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("LevelSelectScene");
+        FadeOut();
+    }
+
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        FadeOut();
     }
 
     public void Retry()
