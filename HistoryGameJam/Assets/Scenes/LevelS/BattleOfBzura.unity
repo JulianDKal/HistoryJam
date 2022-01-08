@@ -396,7 +396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Battle of Wilno
+  m_text: Battle of Bzura
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 69980c089e33ec54cb9e8d878f7bc84b, type: 2}
   m_sharedMaterial: {fileID: 5931111066339033957, guid: 69980c089e33ec54cb9e8d878f7bc84b, type: 2}
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: September 18 1939
+  m_text: September 9 1939
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3dd4da1c4c7bf6e4182dcce66932db76, type: 2}
   m_sharedMaterial: {fileID: -4525988637919247872, guid: 3dd4da1c4c7bf6e4182dcce66932db76, type: 2}
@@ -2164,6 +2164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevelIndex: 3
+  effectVolume: 0.75
+  musicVolume: 0.75
 --- !u!4 &1118853621
 Transform:
   m_ObjectHideFlags: 0

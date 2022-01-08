@@ -9,6 +9,9 @@ public class Game_Manager : MonoBehaviour
     public static int currentMoney = 0;
     public int currentLevelIndex = 3;
 
+    public float effectVolume = 0.75f;
+    public float musicVolume = 0.75f;
+
     public static bool gameIsPaused = false;
 
         private void Awake() {
