@@ -32,8 +32,12 @@ public class Tile : MonoBehaviour
             if(Card.currentCardSelected.GetComponent<Card>().cost <= Game_Manager.currentMoney)
             {
                 PlaceNewUnit(Card.currentUnitToPlace, out GameObject newUnit);
+                if(newUnit!= null)
+                {
                 BattleManager.activePlayerUnits.Add(newUnit);
-                if(newUnit!= null) Card.RemoveMoney(Card.currentCardSelected.GetComponent<Card>().cost);
+                Card.RemoveMoney(Card.currentCardSelected.GetComponent<Card>().cost);
+                }
+                
             }
             else Debug.Log("You don't have enough money!");           
         }

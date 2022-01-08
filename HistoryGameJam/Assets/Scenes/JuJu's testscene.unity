@@ -398,7 +398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9970be08a94345749bd53e323ccaac7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c3c8e6837d4ce1408e616fe20c779ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -713,6 +713,8 @@ MonoBehaviour:
   waves:
   - unitPlacements:
     - {x: 2, y: 5}
+    - {x: 2, y: 2}
+    - {x: 1, y: 3}
     units:
     - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
     - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
@@ -720,9 +722,19 @@ MonoBehaviour:
   - unitPlacements:
     - {x: 1, y: 1}
     - {x: 1, y: 6}
+    - {x: 2, y: 3}
     units:
     - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
     - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
+    - {fileID: 4652966164667243113, guid: 14db5b60121872849b81a340def7a488, type: 3}
+  - unitPlacements:
+    - {x: 1, y: 1}
+    - {x: 1, y: 3}
+    - {x: 1, y: 5}
+    units:
+    - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+    - {fileID: 4652966164667243113, guid: 2724de4d21ed3174a97fcece7c46c678, type: 3}
+    - {fileID: 4652966164667243113, guid: 14db5b60121872849b81a340def7a488, type: 3}
   battleManager: {fileID: 1764402847}
 --- !u!4 &460183180
 Transform:
@@ -1778,7 +1790,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5303e0ed38210043973dbadf2a223eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9eabd58c8cc39724b8024dc7e53a5f56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2439,7 +2451,7 @@ MonoBehaviour:
   - {fileID: 855403360906750325, guid: ae62bbafabafd0a439c0e0656fb6a8bb, type: 3}
   enemy: {fileID: 460183179}
   startButton: {fileID: 1398647395}
-  maxTurnsPerWave: 2
+  maxTurnsPerWave: 4
   moneyPerWave: 100
   turnsText: {fileID: 1973052781}
   stateText: {fileID: 1631579994}

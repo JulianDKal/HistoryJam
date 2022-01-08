@@ -16,6 +16,9 @@ MonoBehaviour:
   - {x: -1, y: 0}
   - {x: -1, y: -1}
   - {x: -1, y: 1}
+  - {x: 1, y: 0}
+  - {x: 1, y: 1}
+  - {x: 1, y: -1}
   attackVectors:
   - {x: -1, y: 0}
   - {x: -2, y: 0}
