@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
                 tile = BattleField.tilesDictionary[vector];
                 //instantiate tanks by default
                 tile.GetComponent<Tile>().PlaceNewUnit(waves[BattleManager.waveCount].units[index], out GameObject newUnit);
-                BattleManager.activeEnemyUnits.Add(newUnit); //add the newly instantiated unit to the list of enemys
+                if(newUnit != null) BattleManager.activeEnemyUnits.Add(newUnit); //add the newly instantiated unit to the list of enemys
                 
             }
             else Debug.Log("Unit out of grid!");
@@ -39,6 +39,7 @@ public class EnemyAI : MonoBehaviour
             yield return new WaitForSeconds(1);
             foreach (GameObject unit in BattleManager.activeEnemyUnits)
             {
+                Debug.Log(unit);
                 //Get information about the current unit
                 List<Vector2> availableTilesToMoveTo = new List<Vector2>();
                 List<Vector2> availableTilesToAttack = new List<Vector2>();                                  

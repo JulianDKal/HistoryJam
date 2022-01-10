@@ -2812,10 +2812,10 @@ MonoBehaviour:
   enemy: {fileID: 460183179}
   startButton: {fileID: 1398647395}
   maxTurnsPerWave: 4
-  moneyPerWave: 80
+  moneyPerWave: 40
   turnsText: {fileID: 1606954889}
   stateText: {fileID: 1631579994}
-  goldReward: 50
+  goldReward: 70
   waveText: {fileID: 80210127}
 --- !u!4 &1764402848
 Transform:

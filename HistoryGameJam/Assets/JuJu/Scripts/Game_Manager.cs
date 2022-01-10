@@ -77,4 +77,14 @@ public class Game_Manager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+        public IEnumerator LevelSelectScreen()
+    {
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("LevelSelectScene");
+        BattleField.tilesDictionary.Clear();
+        BattleManager.activeEnemyUnits.Clear();
+        BattleManager.activePlayerUnits.Clear();
+    }
+
 }

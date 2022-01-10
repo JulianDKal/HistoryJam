@@ -31,6 +31,7 @@ public class BattleManager : MonoBehaviour
     public static int unitsKilled;
     public static int unitsLost;
     public static int reward;
+    public static int moneyAtStartOfLevel;
 
     public enum AttackOrMove
     {
@@ -55,6 +56,7 @@ public class BattleManager : MonoBehaviour
         reward = goldReward;
         unitsKilled = 0;
         unitsLost = 0;
+        moneyAtStartOfLevel = Game_Manager.currentMoney - moneyPerWave;
 
         SetState(BattleState.NEWWAVE);
         StartCoroutine(WaitForNextWave());

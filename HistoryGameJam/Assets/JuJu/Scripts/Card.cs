@@ -34,12 +34,12 @@ public class Card : MonoBehaviour
 
     public static void RemoveMoney(int cost)
     {
-        Game_Manager.currentMoney -= cost;        
+        Game_Manager.currentMoney -= cost;       
     }
 
     public static void GiveMoney(int cost)
     {
-        Game_Manager.currentMoney += cost;        
+        Game_Manager.currentMoney += cost;   
     }
 
     private void Update() {

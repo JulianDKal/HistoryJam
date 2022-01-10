@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelS/BattleOfBzura.unity
     guid: 99c3b5efde512ad47b20507e0ea11286
   - enabled: 1
+    path: Assets/Scenes/LevelS/BattleOfLwow.unity
+    guid: 084dc4dbcb454604ca8549684b60d747
+  - enabled: 1
+    path: Assets/Scenes/LevelS/BattleOfWarsaw.unity
+    guid: 57b24809c2edc7c4ab546a96fb2b7551
+  - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: 65c0003c0b27a364d9cdef754be96d9e
   - enabled: 1
@@ -35,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 41c898089c655274dba1bd05042d8964
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: ae3d43f099c734443a0eddf6ced0fd2c
   m_configObjects: {}

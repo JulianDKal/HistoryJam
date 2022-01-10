@@ -2695,8 +2695,8 @@ MonoBehaviour:
   - {fileID: 855403360906750325, guid: 07d607bb4512e3741b53cac4aa10df7f, type: 3}
   enemy: {fileID: 460183179}
   startButton: {fileID: 1398647395}
-  maxTurnsPerWave: 4
-  moneyPerWave: 80
+  maxTurnsPerWave: 5
+  moneyPerWave: 10
   turnsText: {fileID: 1973052781}
   stateText: {fileID: 1631579994}
   goldReward: 100

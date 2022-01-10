@@ -47,16 +47,16 @@ public class UIManager : MonoBehaviour
 
     public void LevelSelectScreen()
     {
-        Time.timeScale = 1f;
         FadeOut();
-        SceneManager.LoadScene("LevelSelectScene");
-        BattleField.tilesDictionary.Clear();
-        BattleManager.activeEnemyUnits.Clear();
-        BattleManager.activePlayerUnits.Clear();
+        Game_Manager.instance.StartCoroutine("LevelSelectScreen");
     }
 
     public void BackToMainMenu()
     {
+        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("HowToPlay") && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LevelSelectScene"))
+        {
+            Game_Manager.currentMoney = BattleManager.moneyAtStartOfLevel;
+        }  
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         FadeOut();
@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
 
     public void Retry()
     {
+        Game_Manager.currentMoney = BattleManager.moneyAtStartOfLevel;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         BattleField.tilesDictionary.Clear();
@@ -96,5 +97,10 @@ public class UIManager : MonoBehaviour
         threshold += Time.deltaTime * transitionSpeed;
         if(!shouldFadeIn) threshold = 1.1f;
         mat.SetFloat("Threshold", threshold);
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
     }
 }

@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 198710993}
   - component: {fileID: 198710992}
   m_Layer: 5
-  m_Name: level2
+  m_Name: level5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ RectTransform:
   m_Children:
   - {fileID: 1486193771}
   m_Father: {fileID: 1313523426}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 210771189}
   - component: {fileID: 210771188}
   m_Layer: 5
-  m_Name: level4
+  m_Name: level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,7 +504,7 @@ RectTransform:
   m_Children:
   - {fileID: 173120854}
   m_Father: {fileID: 1313523426}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 715185865}
   - component: {fileID: 715185864}
   m_Layer: 5
-  m_Name: level5
+  m_Name: level4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +719,7 @@ RectTransform:
   m_Children:
   - {fileID: 938651028}
   m_Father: {fileID: 1313523426}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2116,10 +2116,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1278361981}
-  - {fileID: 198710991}
-  - {fileID: 847030812}
   - {fileID: 210771187}
+  - {fileID: 847030812}
   - {fileID: 715185863}
+  - {fileID: 198710991}
   - {fileID: 977100523}
   - {fileID: 1125105233}
   - {fileID: 1286329090}
@@ -2419,7 +2419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1587767634
 Transform:
   m_ObjectHideFlags: 0
@@ -2455,11 +2455,11 @@ MonoBehaviour:
   - September 28 1939
   buttons:
   - {fileID: 1278361980}
-  - {fileID: 198710990}
-  - {fileID: 847030811}
   - {fileID: 210771186}
+  - {fileID: 847030811}
   - {fileID: 715185862}
-  - {fileID: 715185862}
+  - {fileID: 198710990}
+  - {fileID: 198710990}
   dateText: {fileID: 1301341369}
 --- !u!1 &1847130632
 GameObject:

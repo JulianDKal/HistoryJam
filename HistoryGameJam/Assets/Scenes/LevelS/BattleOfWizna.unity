@@ -2899,7 +2899,7 @@ MonoBehaviour:
   moneyPerWave: 50
   turnsText: {fileID: 1150061953}
   stateText: {fileID: 1631579994}
-  goldReward: 100
+  goldReward: 80
   waveText: {fileID: 1638977386}
 --- !u!4 &1764402848
 Transform:
